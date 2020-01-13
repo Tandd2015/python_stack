@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Results</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/java.js') }}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Submitted Info</h1>
+            <h3>Name: {{ Results['First_Name'] }} {{ Results['Last_Name'] }}</h3>
+            <h3>Dojo Location: {{ Results['Dojo_Location'] }}</h3>
+            <h3>Favorite Language: {{ Results['Favorite_Language'] }}!!!</h3>
+            <h3>Comment: {{ Results['Text_Area'] }}</h3>
+            <a href="{{ url_for('startRoute') }}"><button type="button" class="btn btn-success btn-lg">Go Back</button></a>
+        </div>
+    </body>
+</html>

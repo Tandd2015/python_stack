@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Form Test" content="practice python flask with forms">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Form Test-index.html</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Index Page</h1>
+            <h3>Create a User</h3>
+            <!--action attribute-This is the route that will process the form -->
+            <!-- method attribute-options are GET and POST, this to be a POST request (but if you don't set it, the default is GET)-->
+            <form action='/users' method='post'> 
+                <!-- input elements-These are the parts of the form that actually gather data from the user,Each element should have a unique value for its name attribute. -->
+                <p>Name: <input type='text' name='name'></p>
+                <p>Email: <input type='text' name='email'></p>
+                <input type='submit' value='create user'>
+                <!-- a way to submit the form-This can either be <input type='submit'> or <button>Submit</button>, but NOT <input type='button'>. -->
+                <!-- with the action attribute, that this POST request would be handled with the route /users -->
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+div.container{
+    text-align: center;
+}
+
+div.container#index_container{
+    padding-top: 300px;
+}
+
+form{
+    display: inline-block;
+    width: inherit;
+}
+
+div.form-group{
+    width: inherit;
+}
+
+div.form-group#index_form_group{
+    display: inline-flex;
+}
+
+div.form-row#success_form_row_title{
+    width: inherit;
+    display: grid;
+}
+
+div.form-row#success_form_col_title{
+    width: inherit;
+}
+
+div.col{
+    display: inline-flex;
+    
+}
+
+div.col#email_address_input{
+    width: 550px;
+}
+
+div.col#success_email_address_input{
+    width: 550px;
+}

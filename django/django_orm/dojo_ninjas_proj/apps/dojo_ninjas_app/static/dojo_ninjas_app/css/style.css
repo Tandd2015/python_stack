@@ -1,0 +1,14 @@
+.container{
+    text-align: center;
+}
+
+#one{
+    display: inline-block;
+    border: 1px solid black;
+    padding-bottom: 20px;
+}
+
+#two{
+    border: 1px solid black;
+    padding-bottom: 20px;
+}

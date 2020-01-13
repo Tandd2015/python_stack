@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Counter</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/java.js') }}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Counter</h1>
+            <p>{{ session['count'] }} times</p>
+            <a href="{{ url_for('counterTwo') }}"><button type="button" class="btn btn-success">Plus 2</button></a>
+            <a href="{{ url_for('clearSession') }}"><button type="button" class="btn btn-danger">Count Reset</button></a>
+        </div>
+    </body>
+</html>

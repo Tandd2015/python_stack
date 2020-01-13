@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Login and Register App index.html" content="Login and Register App index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login and Register App index.html</title>
+        {% load static %}
+        <script src="{% static 'login_register_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'login_register_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'login_register_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'login_register_app/css/style.css' %}">
+        <script src="{% static 'login_register_app/js/java.js' %}"></script>
+        <title>Login and Register App index.html</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-md-6" id="Register">
+                <h1>Registration</h1>
+                <form action="/success_process_reg" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="change" value="register_">
+                    <div class="col-md-10">
+                        <div class="form-group col-md-12">
+                            <label for="register_email_input">Email Address: </label>
+                            <input type="text" class="form-control" id="css_register_email_input" name="register_email_input" placeholder="Email Address">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="register_first_name_input">First Name: </label>
+                            <input type="text" class="form-control" id="css_register_first_name_input" name="register_first_name_input" placeholder="First Name">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="register_last_name_input">Last Name: </label>
+                            <input type="text" class="form-control" id="css_register_last_name_input" name="register_last_name_input" placeholder="Last Name">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="register_password_input">Password: </label>
+                            <input type="text" class="form-control" id="css_register_password_input" name="register_password_input" placeholder="Password">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="register_password_con_input">Confirm PW: </label>
+                            <input type="text" class="form-control" id="css_register_password_con_input" name="register_password_con_input" placeholder="Re-Enter Password">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <h5>Birthday: mm-dd-yyyy</h5>
+                            <div class="form-group col-md-8">
+                                <input type="date" class="inline form-control" id="css_register_birthday_input" name="register_birthday_input" placeholder="mm-dd-yyyy">
+                            </div>
+                        </div>
+                        <div class="left form-group col-md-12">
+                            <button type="submit" class="btn btn-primary">Register now</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4" id="Login">
+                <h1>Login</h1>
+                <form action="/success_process_log" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="change" value="login_">
+                    <div class="form-group col-md-12" id="login_email">
+                        <label for="login_email_input">User Email Address: </label>
+                        <input type="text" class="form-control" id="css_login_email_input" name="login_email_input" placeholder="User Email Address">
+                    </div>
+                    <div class="form-group col-md-12" id="login_pass">
+                        <label for="login_password_input">User Password: </label>
+                        <input type="text" class="form-control" id="css_login_password_input" name="login_password_input" placeholder="User Password">
+                    </div>
+                    <div class="left form-row">
+                        <button type="submit" class="btn btn-success brn-lg">Log in</button>
+                    </div>
+                </form>
+                <div class="row">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tag %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

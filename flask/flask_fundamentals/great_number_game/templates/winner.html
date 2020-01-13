@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="The Great Number Game Winner Board Registration" content="python flask assignment called the great number game for coding dojo winner board Registration template for sensei challenge.">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/java.js') }}"></script>
+        <title>Great Number Game Winner Board and Registration</title>
+        </head>
+    <body>
+        <div class="container">
+            <h1>Winner Board</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">First Name: </th>
+                        <th scope="col">Last Name: </th>
+                        <th scope="col">Number of Guesses: </th>
+                    </tr>   
+                </thead>
+                <tbody>
+                {% for win in session['winners'] %}
+                    <tr>
+                        <td>{{ win['first_name'] }}</td>
+                        <td>{{ win['last_name'] }}</td>
+                        <td>{{ win['attempts'] }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <h1>Winner Board Registration</h1>
+            <form action="/winner_board_form" method="POST">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="{{ session['message_class'] }}" role="alert">
+                            <ul class=flashes>
+                                {% for category, message in messages %}
+                                    <li class="{{ category }}">{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group col-md-6">
+                    <label for="registeration_f_name">First Name: </label>
+                    <input type="text" class="form-control" id="registeration_f_name" name="registeration_f_name" placeholder="First Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="registeration_l_name">Last Name: </label>
+                    <input type="text" class="form-control" id="registeration_l_name" name="registeration_l_name" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Register now</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

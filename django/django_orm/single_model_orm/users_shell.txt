@@ -1,0 +1,31 @@
+python3 manage.py makemigrations
+
+python3 manage.py migrate
+
+python3 manage.py shell
+
+from apps.users_app.models import Users
+
+daniel = Users.objects.create(first_name="Daniel", last_name="Beatty", email_address="new_email@outlook.com", age=32)  
+
+harlow = Users.objects.create(first_name="harlow", last_name="beatty", email_address="new_email2@outlook.com", age=4)
+
+christina = Users.objects.create(first_name="Christina", last_name="Beatty", email_address="old_email@outlook.com", age=33)
+
+all_users = Users.objects.all()
+
+last_user = Users.objects.last()
+
+first_user = Users.objects.first()
+
+updated_user = Users.objects.get(id=3)
+updated_user.last_name = "Pancakes"
+updated_user.save()
+
+deleted_user = Users.objects.get(id=2)
+deleted_user.delete()
+
+all_sort = Users.objects.all().order_by("first_name")
+
+all_sort = Users.objects.all().order_by("-first_name")
+

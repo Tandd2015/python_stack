@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Dojo Survey with Validation Results" content="The results page to a form that needed validated fields to process past redirecting return.">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Results</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/java.js') }}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1>Submitted Info</h1>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3>Name: </h3>        
+                </div>
+                <div class="col">
+                    <p>{{session['fName']}} {{session['lName']}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3>Dojo Location: </h3>    
+                </div>
+                <div class="col">
+                    <p>{{session['dojoL']}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3>Favorite Language: </h3>
+                </div>
+                <div class="col">
+                    <p>{{session['favL']}} !!!</p>    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3>Comment: </h3>  
+                </div>
+                <div class="col">
+                    <p>{{session['textA']}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <a href="{{ url_for('startRoute') }}"><button type="button" class="btn btn-success btn-lg">Go Back</button></a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+#registartion_background_one{
+    background-image: url(../img/skull.jpg);
+    background-size: 110em;   
+}
+#registartion_background_two{
+    background-image: url(../img/skulls7.jpg);
+    background-size: cover;
+    margin-top: 4em;
+}
+#login_background_one{
+    background-image: url(../img/background1.jpg);
+    background-size: 104em;   
+}
+#login_background_two{
+    background-image: url(../img/registration_page_image6.jpg);
+    background-size: 66em;
+    margin-top: 4em;
+}
+#user_dashboard_background_one{
+    background-image: url(../img/dragon2.jpg);
+    background-size: 160em;   
+}
+#user_dashboard_background_two{
+    background-image: url(../img/dragon1.jpg);
+    background-size: cover;
+    margin-top: 4em;
+}
+
+.left{
+    padding-left: 125px;
+}
+.left1{
+    padding-left: 220px;
+}
+
+.left2{
+    padding-left: 60px;
+}
+
+.incline{
+    display: inline;
+}
+
+.in_b {
+    display: inline-block;
+}
+
+.box{
+    border: 2px solid black;
+}
+
+.registration_holder{
+    text-align: center;
+}
+
+.greeness{
+    color: #07ff58;
+}
+
+.purpleness{
+    color: blueviolet;
+}
+
+.orangeness{
+    color: rgb(255, 140, 0);
+}
+
+.pinkness{
+    color: #fa01f8;
+}
+
+.blueness{
+    color: #0019ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}

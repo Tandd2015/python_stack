@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Wish List App main_page_index.html" content="Wish List App main_page_index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Wish List App main_page_index.html</title>
+        {% load static %}
+        <script src="{% static 'wish_list_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'wish_list_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'wish_list_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'wish_list_app/css/style.css' %}">
+        <script src="{% static 'wish_list_app/js/java.js' %}"></script>
+        <title>Wish List App main_page_index.html</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <h5>Hello, {{user_in_session.name}}!</h5>
+                </div>
+                <div class="incline form-group col-md-4">
+                    <a href="/clear">Logout</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <p>Your Wish List:</p>
+                    <table class="table" id="table_one">
+                        <thead>
+                            <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Added by</th>
+                                <th scope="col">Date Added</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in users_wish_list%}
+                            <tr>
+                                <td><a href="item_show_success/{{item.id}}">{{item.name}}</a></td>
+                                <td>{{item.items_list_object.name}}</td>
+                                <td>{{item.items_list_object.created_at}}</td>
+                                <td><a href="/item_delete_success/{{item.id}}">Remove from my list</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <p>Your Wish List:</p>
+                    <table class="table" id="table_two">
+                        <thead>
+                            <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Added by</th>
+                                <th scope="col">Date Added</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in others_wishes%}
+                            <tr>
+                                <td><a href="item_show_success/{{item.id}}">{{item.name}}</a></td>
+                                <td>{{item.items_list_object.name}}</td>
+                                <td>{{item.items_list_object.created_at}}</td>
+                                <td><a href="/item_add_success/{{item.id}}">Add to my list</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <a href="wish_items/create">Add Item</a>
+            </div>
+            <div class="row">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tag %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

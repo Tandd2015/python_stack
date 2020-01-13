@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Email Validation with DB-Registration" content="This is a python-flask-mysql assignment for Coding Dojo.">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Email Validation with DB</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <div class="container" id="index_container">
+            <form action="/check_emails" method="POST">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="{{ session['class'] }}" role="alert">
+                            <ul class=flashes>
+                                {% for category, message in messages %}
+                                    <li class="{{ category }}">{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group" id="index_form_group">
+                    <div class="col">
+                        <label for="email_address">Email Address: </label>
+                    </div>
+                    <div class="col" id="email_address_input">
+                        <input type="text" class="form-control" id="email_address" name="email_address" placeholder="Email Address">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Landing Page index</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <!-- <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script> -->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/java.js') }}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>{{ phrase }}</h2>
+            {%for x in range (0, times)%}
+                <h6>{{ new_phrase }}</h6>
+                <button type="button" class="btn btn-default" id="1" >Click Me for Suprise</button>
+            {% endfor %}
+            <div id="2"></div>
+        </div>
+    </body>
+</html>

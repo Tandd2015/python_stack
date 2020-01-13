@@ -1,0 +1,6 @@
+-- I used the twitter practice example from the learning platform
+USE twitter; -- The USE db_name statement tells MySQL to use the db_name database as the default (current) database for subsequent statements. The database remains the default until the end of the session or another USE statement is issued
+SELECT * FROM users; -- The SELECT is used to retrieve rows selected from one or more tables, and can include UNION statements and subqueries.
+INSERT INTO users (first_name, last_name, handle, birthday, created_at, updated_at) VALUES ('Daniel', 'Beatty', 'GOT_IT', '1988-01-26', NOW(), NOW()); --  The INSERT inserts new rows into an existing table. The INSERT ... VALUES and INSERT ... SET forms of the statement insert rows based on explicitly specified values.
+DELETE FROM users WHERE id > 7; -- The DELETE statement deletes rows from tbl_name and returns the number of deleted rows. The conditions in the optional WHERE clause identify which rows to delete. With no WHERE clause, all rows are deleted.
+UPDATE users SET first_name = 'Dan for short.' WHERE id = 20; -- UPDATE is a DML statement that modifies rows in a table. The SET clause indicates which columns to modify and the values they should be given. The WHERE clause, if given, specifies the conditions that identify which rows to update. With no WHERE clause, all rows are updated.

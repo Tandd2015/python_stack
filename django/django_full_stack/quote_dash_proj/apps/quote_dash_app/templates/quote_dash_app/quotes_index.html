@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Quote dash App index.html" content="Quote dash App quotes_index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Quote dash App quotes_index.html</title>
+        {% load static %}
+        <script src="{% static 'quote_dash_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'quote_dash_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'quote_dash_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'quote_dash_app/css/style.css' %}">
+        <script src="{% static 'quote_dash_app/js/java.js' %}"></script>
+        <title>Quote dash App quotes_index.html</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <h5>Success! Welcome, {{userzzz.first_name}}!</h5>
+                </div>
+                <div class="incline form-group col-md-4">
+                    <a href="/myaccount/{{userzzz.id}}">Edit my Accont</a>
+                    <p class="incline"> | </p>
+                    <a class="btn btn-primary"href="/clear">Log Out</a>
+                </div>
+                <h1>Quotes</h1>
+            </div>
+            <div class="row">
+                <div class="col col-md-3">
+                    {%for quotis in quotezzz%}
+                    <div class="box row">
+                        <p>{{quotis.author_name}}</p>
+                        <p>{{quotis.quote_message}}</p>
+                        <p>Posted by <a href="">{{quotis.users_quote_id.first_name}} {{quotis.users_quote_id.last_name}}</a></p>
+                        <p>{{quotis.likes_id.count}} people like this</p>
+                        <form action="mad/liker/{{quotis.id}}" method="POST">
+                            <input type="hidden" name="change" value="liker_">
+                            {% csrf_token %}
+                            <button type="submit">Like</button>
+                        </form>
+                        <a href="delete/{{quotis.id}}">Delete</a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li{% if message.tag %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row col-md-6"></div>
+                    <form class="in_b" action="mad/quoter" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="change" value="quoter_">
+                        <div class="row">
+                            <label for="quoter_author_name_input" class="col-sm-4 col-form-label">Author Name: </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="quoter_author_name_input" id="css_author_name_input">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="quoter_quote_input" class="col-sm-4 col-form-label">Quotes: </label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="css_quote_input" name="quoter_quote_input" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="left row">
+                            <div class="col-sm-12">
+                                <button type="sumbit" class="btn btn-primary col-sm-6" id="add_submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

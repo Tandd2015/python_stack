@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Show Maker edit_show_index.html" content="Show Maker edit_show_index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Show Maker edit_show_index.html</title>
+        {% load static %}
+        <script src="{% static 'show_maker/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'show_maker/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'show_maker/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'show_maker/css/style.css' %}">
+        <script src="{% static 'show_maker/js/java.js' %}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="row">
+                        <h1 class="col-sm-4" >Edit Show {{editzzz.id}}</h1>
+                        <a href="/shows">Go Back</a>
+                    </div>
+                    <div class="row">
+                        <form action="/shows/{{editzzz.id}}/update" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="change" value="edit_">
+                            <div class="row">
+                                <label for="edit_title_input" class="col-sm-2 col-form-label">Title: </label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" placeholder="{{editzzz.title}}" name="edit_title_input" id="css_edit_title_input">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="edit_network_input" class="col-sm-2 col-form-label">Network: </label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" placeholder="{{editzzz.network}}" name="edit_network_input" id="css_edit_network_input">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="edit_release_date_input" class="col-sm-3 col-form-label">Release Date: </label>
+                                <div class="col-sm-4">
+                                    <input type="date" class="form-control" placeholder="{{editzzz.rel_date}}" name="edit_release_date_input" id="css_edit_release_date_input">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="edit_description" class="col-sm-2 col-form-label">Description: </label>
+                                <div class="col-sm-5">
+                                    <textarea class="form-control" id="css_edit_description_input" placeholder="{{editzzz.descript}}" name="edit_description_input" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <button type="sumbit" class="btn btn-warning" id="create_submit">Update</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                {% if messages %}
+                                <ul class="messages">
+                                    {% for message in messages %}
+                                    <li{% if message.tag %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

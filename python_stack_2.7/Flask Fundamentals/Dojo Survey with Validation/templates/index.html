@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Dojo Survey with Validation" content="This is an assignment using python and flask submitting a form and redirecting after the submit now including validation for coding dojo">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Dojo Survey with Validation</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/java.js') }}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Dojo Survey with Validation</h1>
+            <form action="/results" method="POST">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="First_Name1">First Name: </label>
+                        <input type="text" class="form-control" id="First_Name1" name="First_Name" placeholder="First_Name">
+                        <label for="Last_Name1">Last Name: </label>
+                        <input type="text" class="form-control" id="Last_Name1" name="Last_Name" placeholder="Last_Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="Dojo_Location1">Dojo Location: </label>
+                        <select class="custom-select" id="Dojo_Location1" name="Dojo_Location">
+                            <option selected>Dojo Location</option>
+                            <option value="Seattle, WA">Seattle, WA</option>
+                            <option value="Tysons Corner, VA">Tysons Corner, VA</option>
+                            <option value="Los Angeles, CA">Los Angeles, CA</option>
+                            <option value="Tulsa, OK">Tulsa, OK</option>
+                            <option value="Silicon Valley, CA">Silicon Valley, CA</option>
+                            <option value="Chicago, IL">Chicago, IL</option>
+                            <option value="Dallas, TX">Dallas, TX</option>
+                            <option value="East Bay, CA">East Bay, CA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="Favorite_Language1">Favorite Language: </label>
+                        <select class="custom-select"  id="Favorite_Language1" name="Favorite_Language">
+                            <option selected>Favorite Language</option>
+                            <option value="Python">Python</option>
+                            <option value="Flask">Flask</option>
+                            <option value="JQuery">JQuery</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="CSS">CSS</option>
+                            <option value="BootStrap">BootStrap</option>
+                            <option value="HTML">HTML</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="Text_Area1">Comment (Optional): </label>
+                        <textarea class="form-control" id="Text_Area1" name="Text_Area" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <p>{{message}}</p>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

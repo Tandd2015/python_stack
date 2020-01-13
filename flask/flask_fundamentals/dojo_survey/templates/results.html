@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Dojo Survey-results.html" content="python flask assignment called dojo survey for coding dojo.-results.html">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/my_js.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <title>Dojo Survey-results.html</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Submitted Info:</h1>
+            <!-- <h3>Name: {{r['f_name']}} {{r['l_name']}}</h3>
+            <h3>Dojo Location: {{r['dojo_l']}}</h3>
+            <h3>Favorite Language: {{r['fav_l']}}</h3>
+            <h3>Comment: {{r['comment']}}</h3>
+            <h3>Work Grading Scale: {{r['like_scale']}}</h3>
+            <h3>Bot Status: {{r['bot']}}</h3> -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Name: </th>
+                        <th scope="col">Dojo Location: </th>
+                        <th scope="col">Favorite Language: </th>
+                        <th scope="col">Comment: </th>
+                        <th scope="col">Work Grading Scale: </th>
+                        <th scope="col">Bot Status: </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{r['f_name']}} {{r['l_name']}}</td>
+                        <td>{{r['dojo_l']}}</td>
+                        <td>{{r['fav_l']}}</td>
+                        <td>{{r['comment']}}</td>
+                        <td>{{r['like_scale']}}</td>
+                        <td>{{r['bot']}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="{{url_for('root_load')}}">Go Back by clicking me!</a>
+        </div>
+    </body>
+</html>

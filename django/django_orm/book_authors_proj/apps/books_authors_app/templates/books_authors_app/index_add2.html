@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Books Authors App index_add.html index.html" content="Books Authors App index_add.html index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Books Authors App index_add.html</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'books_authors_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'books_authors_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'books_authors_app/css/style.css' %}">
+        <script src="{% static 'books_authors_app/js/jquery.js' %}"></script>
+        <script src="{% static 'books_authors_app/js/java.js' %}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>{{one_view2.first_name}} {{one_view2.first_name}}</h1>
+            <p>ID: {{one_view2.id}}</p>
+            <p>Notes: {{one_view2.notes}}</p>
+            <h5>Books</h5>
+            <ul>
+                {% for boo in one_view2.books.all %}
+                <li>{{boo.title}}</li>
+                {% endfor %}
+            </ul>
+            <form action="/i/authors/{{one_view2.id}}/new" method="post">
+                {% csrf_token %}
+                <select name="option2">
+                {% for bo in one_book_author3.all %}
+                    <option value="{{bo.id}}">{{bo.title}}</option>
+                {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-success">Action</button>
+            </form>
+        </div>
+    </body>
+</html>
+

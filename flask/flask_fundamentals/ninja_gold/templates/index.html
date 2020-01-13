@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Ninja Gold" content="This is an assignment for Coding Dojo called Ninja Gold pertaining to Python 3 and Flask">
+        <title>Ninja Gold</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/java.js') }}"></script>
+    </head>
+    <body>
+        <div class="container">
+            {% if 'win_lose' in session and session['win_lose'] == False %}
+                <div class="row" id="gHolder">
+                    <div class="col-4">
+                        <p>Your Gold:  </p>
+                    </div>
+                    <div class="col-8" id="aHolder">
+                        <p>{{ session['sumGold'] }}</p>
+                    </div>
+                </div>
+                <div class="row" id="sHolder">
+                    <div class="col" id="farms">
+                        <form action="/process_money" class="text-center" id="1" method="post">
+                            <h1>Farm</h1>
+                            <p>(earns 10 - 20 golds)</p>
+                            <input type="hidden" name="action" value="farm">
+                            <button type="submit" class="btn btn-success btn-lg" value="sumGold">Find Gold!</button>
+                        </form>
+                    </div>
+                    <div class="col" id="caves">
+                        <form action="/process_money" class="text-center" id="2" method="post">
+                            <h1>Cave</h1>
+                            <p>(earns 5 - 10 golds)</p>
+                            <input type="hidden" name="action" value="cave">
+                            <button type="submit" class="btn btn-primary btn-lg" value="sumGold">Find Gold!</button>
+                        </form>
+                    </div>
+                    <div class="col" id="houses">
+                        <form action="/process_money" class="text-center" id="3" method="post">
+                            <h1>House</h1>
+                            <p>(earns 2 - 5 golds)</p>
+                            <input type="hidden" name="action" value="house">
+                            <button type="submit" class="btn btn-warning btn-lg" value="sumGold">Find Gold!</button>
+                        </form>
+                    </div>
+                    <div class="col" id="casinos">
+                        <form action="/process_money" class="text-center" id="4" method="post">
+                            <h1>Casino</h1>
+                            <p>(earns/takes 0 - 50 golds)</p>
+                            <input type="hidden" name="action" value="casino">
+                            <button type="submit" class="btn btn-danger btn-lg" value="sumGold">Find Gold!</button>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="row">
+                <p>Activities:</p>
+                <div class="col" id="aLog">
+                    {% for i in range(15, -1, -1) %}
+                        <p class="{{session['color_holder'][i]}}">{{session['log_holder'][i]}}</p>
+                    {% endfor %}
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %} 
+                                <p class="{{session['end_color']}}">{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            {% if 'win_lose' in session and session['win_lose'] == True %}
+                <div class="col" id="aLog1">
+                    <a href="{{ url_for('clear_s') }}"><button type="button" class="btn btn-primary btn-lg btn-block">Play Again?</button></a>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

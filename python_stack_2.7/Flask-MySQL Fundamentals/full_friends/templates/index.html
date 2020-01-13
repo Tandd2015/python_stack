@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Full_Students_Assignment" content="This is a Assignment using the python-flask-MySQL stack creating a webpage containing a simple application that lists the users friends and allows the user to add friends with the click of a button">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <title>Full_Students_Assignment</title>
+    </head>
+    <body>
+        <div class="container">
+           <div class="row">
+               <h1>These are all my friends!</h1>
+           </div>
+           {% for friend in all_my_friends %}
+                <div class="row">
+                    <p><span class="friend_text_color">First Name: </span>{{ friend['first_name'] }}</p>
+                </div>
+                <div class="row">
+                    <p><span class="friend_text_color">Last Name: </span>{{ friend['last_name'] }}</p>
+                </div>
+                <div class="row">
+                    <p><span class="friend_text_color">Occupation: </span>{{ friend['occupation'] }}</p>
+                </div>
+                <div class="space"></div>
+            {% endfor %}
+            <div class="row">
+                <form action='/add_friends' method='POST'>
+                    <div class="form-row">
+                        <h1>Add a friend</h1>
+                    </div>
+                    <div class="form-group">
+                        <div class="col">
+                            <label for="first_name">First Name:</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" name="first_name" id="first_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col">
+                            <label for="last_name">Last Name:</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" name="last_name" id="last_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col">
+                            <label for="occupation">Occupation:</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" name="occupation" id="occupation">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-success btn-lg">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

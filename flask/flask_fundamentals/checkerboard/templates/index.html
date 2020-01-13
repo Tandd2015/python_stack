@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Checkerboard" content="python flask assignment called cheackerboard">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/my_js.js') }}"></script>
+        <title>Checkerboard</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <table>
+                {%for i in range(x)%}
+                    <tr>  
+                        {%for k in range(y)%}
+                            <td class="check_{{(i+k)%2+1}}" alt1="{{color_1}}" alt2="{{color_2}}"></td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

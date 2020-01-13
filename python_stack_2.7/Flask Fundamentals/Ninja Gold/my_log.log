@@ -1,0 +1,36 @@
+Earned 12 golds from the farm! (2018/06/11 06:12 AM)
+Earned 12 golds from the farm! (2018/06/11 06:12 AM)
+Earned 12 golds from the farm! (2018/06/11 06:12 AM)
+Earned 12 golds from the farm! (2018/06/11 06:12 AM)
+Earned 12 golds from the farm! (2018/06/11 06:12 AM)
+Earned 12 golds from the farm! (2018/06/11 06:12 AM)
+Earned 12 golds from the farm! (2018/06/11 06:12 AM)
+Earned 12 golds from the farm! (2018/06/11 06:12 AM)
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:20:40] "POST /process_money HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:20:40] "GET /process_money?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:20:40] "GET /process_money?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:20:40] "GET /process_money?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:20:40] "GET /process_money?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:20:40] "GET /process_money?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/danielbeatty/Desktop/DojoAssignments/Python/Flask Fundamentals/Ninja Gold/server.py', reloading
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:21:11] "POST /process_money HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:21:11] "GET /process_money?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:21:11] "GET /process_money?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:21:11] "GET /process_money?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:21:11] "GET /process_money?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:21:11] "GET /process_money?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 06:21:11] "GET /process_money?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/danielbeatty/Desktop/DojoAssignments/Python/Flask Fundamentals/Ninja Gold/server.py', reloading
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:06:43] "POST /process_money HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:06:44] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:06:45] "POST /process_money HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:06:45] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:07:04] "POST /process_money HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:07:04] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:07:05] "POST /process_money HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:07:05] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:07:05] "POST /process_money HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:07:05] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:07:06] "POST /process_money HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [11/Jun/2018 09:07:06] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/danielbeatty/Desktop/DojoAssignments/Python/Flask Fundamentals/Ninja Gold/server.py', reloading

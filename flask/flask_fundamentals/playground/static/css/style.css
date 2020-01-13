@@ -1,0 +1,25 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.wrapper{
+    width: 960px;
+    text-align: center;
+}
+
+    h1{
+        text-align: center;
+    }
+
+    .box{
+        display: inline-block;
+        height: 200px;
+        width: 200px;
+        background-color: blue;
+        border: 2px solid black;
+        margin-left: 10px;
+    }
+
+
+

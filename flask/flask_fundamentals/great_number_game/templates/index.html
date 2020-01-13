@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="The Great Number Game" content="python flask assignment called the great number game for coding dojo">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/java.js') }}"></script>
+        <title>Great Number Game</title>
+        </head>
+    <body>
+        <div class="container">
+            <form action="/form" method="POST">
+                <div class="row">
+                    <h1 class="text-center text-primary">Welcome to the Great Number Game!</h1>
+                    <p class="text-center text-success">I am thinking of a number between 1 and 100</p>
+                    <p class="text-center text-danger">Take a guess! {{ session['winner_count'] }}: attempted consecutive wrong answers</p>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input type="text" class="form-control text-center" id="user_in1" name="user_in" placeholder="Take A Wild Geuss:">
+                    </div>
+                </div>
+                <div class="row text-center" id="empty">
+                <!-- NINJA BONUS -->
+                    <!-- {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                {% if session['count'] < 0 or session['v_count'] < 0 %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ session['count'] }} {{ message }}
+                                    </div>
+                                {% elif session['count'] == 0 and session['v_count'] == 0 %}
+                                    <div class="alert alert-success" role="alert">
+                                        <p>{{ session['num'] }} {{ message }} {{session['winner_count']}} consecutive wrong answers</p>
+                                        <a href="{{ url_for('clear_s') }}"><button type="button" class="btn btn-success btn-lg">Play Again?</button></a>
+                                    </div>
+                                {% else %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ message }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %} -->
+                <!-- SENSIE BONUS -->
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                {% if session['count'] <= 4 and session['v_count'] >= 0 and session['ans'] != session['num'] %}
+                                    <div class="alert alert-danger" role="alert">
+                                        <p>{{session['ans']}} {{message}}</p>
+                                    </div>
+                                {% elif session['count'] >= 5 and session['v_count'] >= 0 and session['ans'] != session['num'] %}
+                                    <div class="alert alert-danger" role="alert">
+                                        <p>{{message}}</p>
+                                        <a href="{{ url_for('clear_s') }}"><button type="button" class="btn btn-danger btn-lg">Play Again? Try NEW game!</button></a>
+                                    </div>
+                                {% elif session['count'] <= 5 and session['v_count'] == 0 and session['ans'] == session['num'] %}
+                                    <div class="alert alert-success" role="alert">
+                                        <p>{{ session['num'] }} {{ message }} {{session['winner_count']}} consecutive wrong answers</p>
+                                        <a href="{{ url_for('clear_s') }}"><button type="button" class="btn btn-success btn-lg">Play Again?</button></a>
+                                        <a href="{{ url_for('winner_board_load_page_2') }}"><button type="button" class="btn btn-success btn-lg">Leader Board Registration !!!</button></a>
+                                    </div>
+                                {% elif session['count'] > 5 and session['v_count'] == 0 and session['ans'] == session['num'] %}
+                                    <div class="alert alert-success" role="alert">
+                                        <p>{{ session['num'] }} {{ message }} {{session['winner_count']}} consecutive wrong answers</p>
+                                        <a href="{{ url_for('clear_s') }}"><button type="button" class="btn btn-success btn-lg">Play Again?</button></a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="row">
+                    <!-- NINJA BONUS -->
+                    <!-- <div class="form-group text-center">
+                        <button type="submit" class="btn btn-warning" value="sent">Are you Right? Click to see!</button>
+                    </div> -->
+                    <!-- SENSEI BONUS -->
+                    {% if session['count'] < 5%}
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-warning" value="sent">Are you Right? Click to see!</button>
+                        </div>
+                    {% else %}
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-warning" value="sent">You Lose! Try OLD game Again!</button>
+                        </div>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

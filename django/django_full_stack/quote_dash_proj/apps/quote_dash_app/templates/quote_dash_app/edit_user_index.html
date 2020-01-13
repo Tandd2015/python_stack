@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Quote dash App edit_user_index.html" content="Quote dash App edit_user_index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Quote dash App quotes_index.html</title>
+        {% load static %}
+        <script src="{% static 'quote_dash_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'quote_dash_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'quote_dash_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'quote_dash_app/css/style.css' %}">
+        <script src="{% static 'quote_dash_app/js/java.js' %}"></script>
+        <title>Quote dash App edit_user_index.html</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <a href="/quotes">Go Back</a>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <h1 class="col-sm-5" >Edit User {{user_editing.id}} {{user_editing.first_name}} 's Info</h1>
+                    </div>
+                    <div class="row">
+                        <form action="/edit/{{user_editing.id}}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="change" value="edit_">
+                            <div class="col-md-9">
+                                <div class="form-group col-md-12">
+                                    <label for="edit_email_input">Email Address: </label>
+                                    <input type="text" class="form-control" id="css_edit_email_input" name="edit_email_input" placeholder="Email Address">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="edit_first_name_input">First Name: </label>
+                                    <input type="text" class="form-control" id="css_edit_first_name_input" name="edit_first_name_input" placeholder="First Name">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="edit_last_name_input">Last Name: </label>
+                                    <input type="text" class="form-control" id="css_edit_last_name_input" name="edit_last_name_input" placeholder="Last Name">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="edit_password_input">Password: </label>
+                                    <input type="text" class="form-control" id="css_edit_password_input" name="edit_password_input" placeholder="Password">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="edit_password_con_input">Confirm PW: </label>
+                                    <input type="text" class="form-control" id="css_edit_password_con_input" name="edit_password_con_input" placeholder="Re-Enter Password">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <h5>Birthday: mm-dd-yyyy</h5>
+                                    <div class="form-group col-md-12">
+                                        <input type="date" class="inline form-control" id="css_edit_birthday_input" name="edit_birthday_input" placeholder="mm-dd-yyyy">
+                                    </div>
+                                </div>
+                                <div class="left form-group col-md-12">
+                                    <button type="submit" class="btn btn-primary">Update User</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                <li{% if message.tag %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

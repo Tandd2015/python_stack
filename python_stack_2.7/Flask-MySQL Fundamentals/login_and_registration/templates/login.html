@@ -1,0 +1,51 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Login and Registration Assignment" content="Login to my App here.">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <div class="container" id="Login">
+            <h1>Login and Registration</h1>
+            <form action="/login_form" method="POST">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="{{ session['message_class'] }}" role="alert">
+                            <ul class=flashes>
+                                {% for category, message in messages %}
+                                    <li class="{{ category }}">{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group col-md-6" id="login_email">
+                    <label for="login_email_address">User Email Address: </label>
+                    <input type="text" class="form-control" id="login_email_address" name="login_email_address" placeholder="User Email Address">
+                </div>
+                <div class="form-group col-md-6" id="login_pass">
+                    <label for="login_password">User Password: </label>
+                    <input type="text" class="form-control" id="login_password" name="login_password" placeholder="User Password">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="login_f_name">First Name: </label>
+                    <input type="text" class="form-control" id="login_f_name" name="login_f_name" placeholder="First Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="login_l_name">Last Name: </label>
+                    <input type="text" class="form-control" id="login_l_name" name="login_l_name" placeholder="Last Name">
+                </div>
+                <div class="form-row">
+                    <button type="submit" class="btn btn-primary brn-lg">Login</button>
+                    <p>If not a registered user click the button below to start the registration process</p>
+                    <a href="{{ url_for('LoadRegisteration') }}"><button type="button" class="btn btn-success">Register</button></a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

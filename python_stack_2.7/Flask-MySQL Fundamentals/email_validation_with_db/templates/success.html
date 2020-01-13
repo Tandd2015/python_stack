@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Email Validation with DB-Success" content="This is a python-flask-mysql assignment for Coding Dojo.">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Email Validation with DB</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <form action='/success_form' method='POST'>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="{{ session['class'] }}" role="alert">
+                            <ul class=flashes>
+                                {% for category, message in messages %}
+                                    <li class="{{ category }}">{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <div class="col">
+                        <label for="success_email_address">Email Address: </label>
+                    </div>
+                    <div class="col" id="success_email_address_input">
+                        <input type="text" class="form-control" id="success_email_address" name="success_email_address" placeholder="Success Email Address">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <button type="submit" class="btn btn-danger btn-lg">Validate and Delete Email</button> 
+                </div>
+                <div class="form-row" id="success_form_row_title">
+                    <div class="col" id="success_form_col_title">
+                        <h1>Email Addresses Entered:</h1>
+                    </div>
+                    {% for success_email_address in all_email_address %}
+                        <div class="form-row">
+                            <div class="col">
+                                <p>{{ success_email_address['email_address'] }}</p>
+                            </div>
+                            <div class="col">
+                                <p>{{ success_email_address['created_at'].strftime("%Y/%m/%d") }}</p>
+                            </div>
+                            <div class="col">
+                                <p>{{ success_email_address['created_at'].strftime("%I:%M %p") }}</p>
+                            </div> 
+                        </div>
+                    {% endfor %}
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

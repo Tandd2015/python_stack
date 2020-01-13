@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Registration Form" content="This is a Registration Form built in Python and Flask with fields that need validated associated to username and password for the Coding Dojo.">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Register</h1>
+            <form action="/backTo" method="POST">
+                <div class="row">
+                    <div class="form-group">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <ul class=flashes>
+                                    {% for category, message in messages %}
+                                        <li class="{{ category }}">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="email_address">Email Address: </label>
+                        <input type="email" class="form-control" id="email" name="email_address" placeholder="Email Address">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col">
+                            <label for="first_name">First Name: </label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="first" name="first_name" placeholder="First Name">
+                        </div>
+                        <div class="col">
+                            <label for="last_name">Last Name: </label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="last" name="last_name" placeholder="Last Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="password_1">Password: </label>
+                        <input type="password" class="form-control" id="pass1" name="password_1" placeholder="Password">
+                        <label for="password_2">Password Conformation: </label>
+                        <input type="password" class="form-control" id="pass2" name="password_2" placeholder="Re-enter Password">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col">
+                            <label for="day">Day: </label>
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" id="days" name="day" placeholder="dd">
+                        </div>
+                        <div class="col">
+                            <label for="month">Month: </label>
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" id="months" name="month" placeholder="mm">
+                        </div>
+                        <div class="col">
+                            <label for="year">Year: </label>
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" id="years" name="year" placeholder="yyyy">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg">Submit Me. Please</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

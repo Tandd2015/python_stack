@@ -1,0 +1,23 @@
+.left{
+    padding-left: 125px;
+}
+.left1{
+    padding-left: 220px;
+}
+
+.left2{
+    padding-left: 60px;
+}
+
+.incline{
+    display: inline;
+}
+
+.in_b {
+    display: inline-block;
+}
+
+.box{
+    border: 2px solid black;
+    margin-bottom: 10px;
+}

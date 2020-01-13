@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Poorly Coded Store checkout.html" content="Poorly Coded Store checkout.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Poorly Coded Store checkout.html</title>
+        {% load static %}
+        <script src="{% static 'poorly_coded_store/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'poorly_coded_store/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'poorly_coded_store/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'poorly_coded_store/css/style.css' %}">
+        <script src="{% static 'poorly_coded_store/js/java.js' %}"></script>
+        <title>Amadon</title>
+    </head>
+    <body>
+        <div class="container">
+            <h3>Thank you for your business!</h3>
+            <p>We charged your credit card for {{new_order.order_total_price}}</p>
+            <p>You have ordered {{total_order}} items so far and spent {{total_money}} with Amadon.com!</p>
+            <p><a href="/">Go Back</a></p>
+        </div>
+    </body>
+</html>
+

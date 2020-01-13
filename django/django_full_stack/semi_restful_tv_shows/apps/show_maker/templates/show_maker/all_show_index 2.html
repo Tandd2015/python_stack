@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Show Maker new_show_index.html index.html" content="Show Maker new_show_index.html index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Show Maker new_show_index.html</title>
+        {% load static %}
+        <script src="{% static 'show_maker/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'show_maker/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'show_maker/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'show_maker/css/style.css' %}">
+        <script src="{% static 'show_maker/js/java.js' %}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h1>All Shows</h1>
+                </div>
+                <div class="col-sm-7">
+                    <a href="/shows/new">Go Back</a>
+                </div>
+                <table class="table" id="table_one">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Network</th>
+                            <th scope="col">Release Date</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for showz in showzzz%}
+                        <tr>
+                            <td>{{showz.id}}</td>
+                            <td>{{showz.title}}</td>
+                            <td>{{showz.network}}</td>
+                            <td>{{showz.rel_date}}</td>
+                            <td><p class="incline"> | </p><a href="/shows/{{showz.id}}">Show</a><p class="incline"> | </p><a href="/shows/{{showz.id}}/edit">Edit</a><p class="incline"> | </p><a href="/shows/{{showz.id}}/destroy">Delete</a><p class="incline"> | </p></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="/shows/new">Add a New Show</a>
+            </div>
+        </div>
+    </body>
+</html>

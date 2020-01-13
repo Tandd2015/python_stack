@@ -1,0 +1,63 @@
+<!-- Note: When using static files, your browser will likely cache them. If you are making changes in static files and they don't appear to be updating, do a hard refresh of the page in your browser: ctrl + shift + r (Windows) or cmd + shift + r (Mac). -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- the static directory must be called static, static folder will be used to serve all of your stylesheets, images, and JavaScript files -->
+        <!-- files in static directory without files being in corresponding folders to file types -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='my_style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='my_script.js') }}"></script>
+        <img src="{{ url_for('static', filename='my_img.png') }}">
+        <!-- create a few more folders to organize our static files into categories according to document type, call them css, js, and img and house the corresponding files in the different folders -->
+        <!-- files in static directory with files being in corresponding folders to file types -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/my_script.js') }}"></script>
+        <img src="{{ url_for('static', filename='img/my_img.png') }}">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Hello Flask!</h1> 
+        <h3>My Flask Template</h3>
+        <p>Phrase: {{ phrase }}</p>
+        <p>Times: {{ times }}</p>
+            
+        {% for x in range(0,times): %}
+            <p>{{ phrase }}</p>
+        {% endfor %}
+            
+        {% if phrase == "hello" %}
+            <p>The phrase says hello</p>
+        {% endif %}
+        
+        <h1>Random Numbers</h1>
+        {% for number in random_numbers %}
+            <p>{{ number }}</p>
+        {% endfor %}
+        <h1>Students</h1>
+        {% for student in students %}
+            <p>{{ student['name'] }} - {{ student['age'] }}</p>
+        {% endfor %}
+        
+        <!-- <input type="hidden" name="action" value="register"> -->
+        <!-- A hidden input is just an ordinary input element, but has no visual representation in the rendered HTML -->
+        <!-- Hidden input fields are form fields that are hidden from the user. Hidden input is used, along with other input elements, to transfer information between different pages -->
+
+        <!-- Jinja templating function removing html tags {{ message|safe }} -->
+        <form method="post" action="/process">
+            <input type="hidden" name="which_form" value="register">
+            <input type="text" name="first_name">
+            <input type="text" name="last_name">
+            <input type="text" name="email">
+            <input type="password" name="password">
+            <input type="submit" value="Register">
+        </form>
+        <form method="post" action="/process">
+            <input type="hidden" name="which_form" value="login">
+            <input type="text" name="email">
+            <input type="password" name="password">
+            <input type="submit" value="Login">
+        </form>
+    </body>
+</html>

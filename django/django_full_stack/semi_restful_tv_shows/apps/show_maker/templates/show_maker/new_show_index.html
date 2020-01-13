@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Show Maker new_show_index.html index.html" content="Show Maker new_show_index.html index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Show Maker new_show_index.html</title>
+        {% load static %}
+        <script src="{% static 'show_maker/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'show_maker/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'show_maker/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'show_maker/css/style.css' %}">
+        <script src="{% static 'show_maker/js/java.js' %}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h1>TV Show {{watching.id}}</h1>
+                </div>
+                <div class="col-sm-7">
+                    <a href="/shows">Go Back</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>Title: {{watching.title}}</p>
+                    <p>Network: {{watching.network}}</p>
+                    <p>Release Date: {{watching.rel_date}}</p>
+                    <p>Description: {{watching.descript}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <p>Last Updated: {{watching.updated_at}}</p>
+                <div class="col">
+                    <a href="/shows/{{watching.id}}/edit">Edit</a>
+                    <p class="incline">|</p>
+                    <a href="/shows/{{watching.id}}/destroy">Delete</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

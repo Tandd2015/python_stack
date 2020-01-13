@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Login and Register App success.html" content="Login and Register App success.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login and Register App success.html</title>
+        {% load static %}
+        <script src="{% static 'login_register_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'login_register_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'login_register_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'login_register_app/css/style.css' %}">
+        <script src="{% static 'login_register_app/js/java.js' %}"></script>
+        <title>Login and Register App success.html</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-md-8">
+                <div class="form-group col-md-10">
+                    <h1>Success! Welcome, {{userzzz.first_name}}!</h1>
+                </div>
+                <div class="form-group col-md-2">
+                    <a href="/clear">Log Out</a>
+                </div>
+                <div class="form-group col-md-5">
+                    <h5>Successfully Registered or Logged in!</h5>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

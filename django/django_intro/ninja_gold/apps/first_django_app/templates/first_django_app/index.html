@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Ninja Gold App index.html" content="Ninja Gold App index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Ninja Gold App index.html</title>
+        {% load static %}
+        <script src="{% static 'first_django_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'first_django_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'first_django_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'first_django_app/css/style.css' %}">
+        <script src="{% static 'first_django_app/js/java.js' %}"></script>
+    </head>
+    <body>
+        <div class="container">
+            {% if 'win_lose' in request.session and request.session.win_lose == False %}
+                <div class="row" id="gHolder">
+                    <div class="col-4">
+                        <p>Your Gold:  </p>
+                    </div>
+                    <div class="col-8" id="aHolder">
+                        <p>{{ request.session.sumGold }}</p>
+                    </div>
+                </div>
+                <div class="row" id="sHolder">
+                    <div class="col" id="farms">
+                        <form action="/process_money" class="text-center" id="1" method="post">
+                            {% csrf_token %}
+                            <h1>Farm</h1>
+                            <p>(earns 10 - 20 golds)</p>
+                            <input type="hidden" name="action" value="farm">
+                            <button type="submit" class="btn btn-success btn-lg" value="sumGold">Find Gold!</button>
+                        </form>
+                    </div>
+                    <div class="col" id="caves">
+                        <form action="/process_money" class="text-center" id="2" method="post">
+                            {% csrf_token %}
+                            <h1>Cave</h1>
+                            <p>(earns 5 - 10 golds)</p>
+                            <input type="hidden" name="action" value="cave">
+                            <button type="submit" class="btn btn-primary btn-lg" value="sumGold">Find Gold!</button>
+                        </form>
+                    </div>
+                    <div class="col" id="houses">
+                        <form action="/process_money" class="text-center" id="3" method="post">
+                            {% csrf_token %}
+                            <h1>House</h1>
+                            <p>(earns 2 - 5 golds)</p>
+                            <input type="hidden" name="action" value="house">
+                            <button type="submit" class="btn btn-warning btn-lg" value="sumGold">Find Gold!</button>
+                        </form>
+                    </div>
+                    <div class="col" id="casinos">
+                        <form action="/process_money" class="text-center" id="4" method="post">
+                            {% csrf_token %}
+                            <h1>Casino</h1>
+                            <p>(earns/takes 0 - 50 golds)</p>
+                            <input type="hidden" name="action" value="casino">
+                            <button type="submit" class="btn btn-danger btn-lg" value="sumGold">Find Gold!</button>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="row">
+                <p>Activities:</p>
+                <div class="col" id="aLog">
+                    <p class="{{request.session.color0}}">{{request.session.log0}}</p>
+                    <p class="{{request.session.color1}}">{{request.session.log1}}</p>
+                    <p class="{{request.session.color2}}">{{request.session.log2}}</p>
+                    <p class="{{request.session.color3}}">{{request.session.log3}}</p>
+                    <p class="{{request.session.color4}}">{{request.session.log4}}</p>
+                    <p class="{{request.session.color5}}">{{request.session.log5}}</p>
+                    <p class="{{request.session.color6}}">{{request.session.log6}}</p>
+                    <p class="{{request.session.color7}}">{{request.session.log7}}</p>
+                    <p class="{{request.session.color8}}">{{request.session.log8}}</p>
+                    <p class="{{request.session.color9}}">{{request.session.log9}}</p>
+                    <p class="{{request.session.color10}}">{{request.session.log10}}</p>
+                    <p class="{{request.session.color11}}">{{request.session.log11}}</p>
+                    <p class="{{request.session.color12}}">{{request.session.log12}}</p>
+                    <p class="{{request.session.color13}}">{{request.session.log13}}</p>
+                    <p class="{{request.session.color14}}">{{request.session.log14}}</p>
+                    <p class="{{request.session.color15}}">{{request.session.log15}}</p>
+                    <p class="{{request.session.color16}}">{{request.session.log16}}</p>
+                </div>
+            {% if 'win_lose' in request.session and request.session.win_lose == True %}
+                <div class="col" id="aLog1">
+                    <a href="/clear"><button type="button" class="btn btn-primary btn-lg btn-block">Play Again?</button></a>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

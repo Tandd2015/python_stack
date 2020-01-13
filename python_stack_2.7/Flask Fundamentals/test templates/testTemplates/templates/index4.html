@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="utf-8" >
+        <title>My First Template to The REST OF MY LIFE</title>
+        <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='CSS/my_style_sheet.css') }}">
+        <script type='text/javascript' src="{{ url_for('static', filename='JS/my_script.js') }}"></script>
+    </head>
+    <body>
+        <img src="{{ url_for('static', filename='img/my_img.png') }}" class="frust">
+        <h3>My Flask template with embedded Python-like code</h3>
+        <p>Phrase: {{ phrase }}</p>
+        <p>Times: {{ times }}</p>
+        
+        {% for x in range(0, times): %}
+            <p>{{ phrase }}</p>
+        {% endfor %}
+
+        {% if phrase == "The World is Mine" %}
+            <p>the phrase says The World is Mine</p>
+        {% endif %}
+    </body>
+</html>
+ 
+<!-- Making changes to css,js,img files adding a root folder to the file 
+    <link rel<span class="support operator from-rainbow">=</span><span class="string quote from-rainbow">"</span><span class="string value from-rainbow">stylesheet</span><span class="string quote from-rainbow">"</span> type<span class="support operator from-rainbow">=</span><span class="string quote from-rainbow">"</span><span class="string value from-rainbow">text/css</span><span class="string quote from-rainbow">"</span> href<span class="support operator from-rainbow">=</span><span class="string quote from-rainbow">"</span><span class="string value from-rainbow">{{ url_for('static', filename='css/my_style_sheet.css') }}</span><span class="string quote from-rainbow">"</span>>
+
+<script type&lt;span class="support operator from-rainbow">=</span><span class="string quote from-rainbow">"</span><span class="string value from-rainbow">text/javascript</span><span class="string quote from-rainbow">"</span> src<span class="support operator from-rainbow">=</span><span class="string quote from-rainbow">"</span><span class="string value from-rainbow">{{ url_for('static', filename='js/my_script.js') }}</span><span class="string quote from-rainbow">"</span>></script>
+
+<img src<span class="support operator from-rainbow">=</span><span class="string quote from-rainbow">"</span><span class="string value from-rainbow">{{ url_for('static', filename='img/my_img.png') }}</span><span class="string quote from-rainbow">"</span>> -->

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Books Authors App index2.html" content="Books Authors App index2.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Books Authors App index2.html</title>
+        {% load static %}
+        <script src="{% static 'books_authors_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'books_authors_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'books_authors_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'books_authors_app/css/style.css' %}">
+        <script src="{% static 'books_authors_app/js/java.js' %}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7" id="add_book">
+                    <div class="row">
+                        <h1 class="col-sm-4" >Add a Author</h1>
+                    </div>
+                    <div class="row">
+                        <form action="i/add2" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <label for="first_name_input" class="col-sm-2 col-form-label">First Name: </label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" name="first_name_input" id="css_first_name_input">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="last_name_input" class="col-sm-2 col-form-label">Last Name: </label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" name="last_name_input" id="css_last_name_input">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="notes" class="col-sm-2 col-form-label">Notes: </label>
+                                <div class="col-sm-5">
+                                    <textarea class="form-control" id="css_notes_input" name="notes_input" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button type="sumbit" class="btn btn-primary col-sm-1" id="add_submit">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <table class="table" id="table_two">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID </th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {%for author in all_authors2%}
+                            <tr>
+                                <td>{{author.id}}</td>
+                                <td>{{author.first_name}} {{author.last.name}}</td>
+                                <td><a href="i/authors/{{author.id}}">Veiw</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

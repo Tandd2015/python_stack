@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Login and Register App index.html" content="Login and Register App index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login and Register App index.html</title>
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'tattoo_u_registration_login_app/css/style.css' %}">
+        <title>Login and Register App index.html</title>
+    </head>
+    <body id="registartion_background_one">
+        <div id="registartion_background_two" class="container">
+            <div class="registration_holder row">
+                <div class="form-group col-md-12">
+                    <h1 class="blueness">Registration</h1>
+                    <div class="row">
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li{% if message.tag %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <form action="/success_process_reg" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="change" value="register_">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <nav>
+                                <ul class="nav nav-tabs" id="registration_nav_tab">
+                                    <li class="nav-item">
+                                        <a class="pinkness nav-link" id="registration_nav_home"  href="/nav3/registration/in">Register</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="pinkness nav-link" id="registration_nav_profile"  href="#nav_profile">Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="pinkness nav-link" id="registration_nav_contact"  href="#nav-contact">Wish List</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="pinkness nav-link" id="registration_nav_add_tattoo"  href="#nav-add_tattoo">Add Tattoo</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="pinkness nav-link" id="registration_nav_add_wish_list"  href="#nav-add_wish_list">Add to Wish List</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="pinkness nav-link" id="registration_nav_find_shop"  href="#nav-find_shop">Find Shop</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="pinkness nav-link" id="registration_nav_design_tattoo"  href="#nav-design_tattoo">Design Your Tattoo</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="pinkness nav-link" id="registration_nav_find_friend"  href="#nav-find_friend">Find Friend</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="pinkness nav-link" id="registration_nav_log_in"  href="/nav2/logged/in">Log In</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="pinkness nav-link" id="registration_nav_log_out"  href="/nav1/logged/out">Log Out</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <h3 class="purpleness registration_holder">Username Information</h3>
+                        </div> 
+                        <div class="form-group col-md-12">    
+                            <label class="greeness col-md-4 col-form-label incline" for="register_email_input">Email Address: </label>
+                            <input type="text" class="form-control registration_holder col-md-5 incline" id="css_register_email_input" name="register_email_input" placeholder="Email Address">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="greeness col-md-4 col-form-label incline" for="register_username_input">Username: </label>
+                            <input type="text" class="form-control registration_holder col-md-5 incline" id="css_register_username_input" name="register_username_input" placeholder="Username">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="col-md-4 greeness col-form-label incline" for="register_password_input">Password: </label>
+                            <input type="text" class="form-control registration_holder col-md-5 incline" id="css_register_password_input" name="register_password_input" placeholder="Password">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="col-md-4 greeness col-form-label incline" for="register_password_con_input">Confirm PW: </label>
+                            <input type="text" class="form-control registration_holder col-md-5 incline" id="css_register_password_con_input" name="register_password_con_input" placeholder="Re-Enter Password">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <h3 class="greeness">Personal Information</h3>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="col-md-4 orangeness col-form-label incline" for="register_first_name_input">First Name: </label>
+                            <input type="text" class="form-control registration_holder col-md-5 incline" id="css_register_first_name_input" name="register_first_name_input" placeholder="First Name">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="col-md-4 orangeness col-form-label incline" for="register_last_name_input">Last Name: </label>
+                            <input type="text" class="form-control registration_holder col-md-5 incline" id="css_register_last_name_input" name="register_last_name_input" placeholder="Last Name">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="col-md-4 orangeness col-form-label incline">Birthday: </label>
+                            <input type="date" class="form-control registration_holder col-md-5 incline" id="css_register_birthday_input" name="register_birthday_input" >
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 orangeness col-form-label incline">Address: </label>
+                            <input type="number" class="form-control registration_holder col-md-3 incline" id="css_register_house_apt_input" name="register_house_apt_input" placeholder="House/Apt #">
+                            <input type="text" class="form-control registration_holder col-md-4 incline" id="css_register_street_address_input" name="register_street_address_input" placeholder="Street Address">
+                            <input type="text" class="form-control registration_holder col-md-3 incline" id="css_register_city_input" name="register_city_input" placeholder="City">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control registration_holder col-md-2 incline" id="css_register_state_province_input" name="register_state_province_input" placeholder="State/Province">                        
+                            <input type="number" class="form-control registration_holder col-md-2 incline" id="css_register_zipcode_input" name="register_zipcode_input" placeholder="Zip Code">
+                            <input type="text" class="form-control registration_holder col-md-3 incline" id="css_register_country_input" name="register_country_input" placeholder="Country">
+                        </div>
+                        <div class="left form-group col-md-12">
+                            <button type="submit" class="btn btn-primary orangeness">Register now</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="{% static 'tattoo_u_registration_login_app/js/java.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Sixth Django App index.html" content="Sixth Django App index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sixth Django App index.html</title>
+        {% load static %}
+        <script src="{% static 'new_fifth_django_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'new_sixth_django_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'new_sixth_django_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'new_sixth_django_app/css/style.css' %}">
+        <script src="{% static 'new_sixth_django_app/js/java.js' %}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Buttons</h1>
+            <p><a href="/six/one">Button One</a></p>
+            <p><a href="{% url 'toindex' %}">Button One</a></p>
+
+        </div>
+    </body>
+</html>

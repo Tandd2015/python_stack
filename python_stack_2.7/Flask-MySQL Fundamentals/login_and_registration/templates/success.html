@@ -1,0 +1,61 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Login and Registration Assignment" content="You are have successfully logged in and have been redirected to the success page">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Success Page</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <div class="container" id="Success">
+            <form action="/success_form">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <div class="{{ session['message_class'] }}" role="alert">
+                                    <ul class=flashes>
+                                        {% for category, message in messages %}
+                                            <h1 class="{{ category }}">{{ message }}</h1>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    {% if user111 %}
+                        {% for user in user111 %}
+                            <div class="form-group col-md-4">
+                                <p>Email Address: {{ user['email_address'] }}</p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <p>First Name: {{ user['first_name'] }}</p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <p>Last Name: {{ user['last_name'] }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% if user1111 %}
+                        {% for use in user1111 %}
+                            <div class="form-group col-md-4">
+                                <p>Email Address: {{ use['email_address'] }}</p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <p>First Name: {{ use['first_name'] }}</p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <p>Last Name: {{ use['last_name'] }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

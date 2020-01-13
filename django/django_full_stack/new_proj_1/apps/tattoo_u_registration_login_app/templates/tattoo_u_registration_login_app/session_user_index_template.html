@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Login and Register App success_user_index_template.html" content="Login and Register App success_user_index_template.html">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'tattoo_u_registration_login_app/css/style.css' %}">
+        <title>Login and Register App success_user_index_template.html</title>
+    </head>
+    <body >
+    <body id="user_dashboard_background_one">
+        <div id="user_dashboard_background_two" class="container">
+            <div class="registration_holder row">
+                <h1>Hello World</h1>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <nav>
+                            <ul class="nav nav-tabs" id="registration_nav_tab">
+                                <li class="nav-item">
+                                    <a class="pinkness nav-link" id="registration_nav_home"  href="/nav3/registration/in">Register</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="pinkness nav-link" id="registration_nav_profile"  href="#nav_profile">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="pinkness nav-link" id="registration_nav_contact"  href="#nav-contact">Wish List</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="pinkness nav-link" id="registration_nav_add_tattoo"  href="#nav-add_tattoo">Add Tattoo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="pinkness nav-link" id="registration_nav_add_wish_list"  href="#nav-add_wish_list">Add to Wish List</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="pinkness nav-link" id="registration_nav_find_shop"  href="#nav-find_shop">Find Shop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="pinkness nav-link" id="registration_nav_design_tattoo"  href="#nav-design_tattoo">Design Your Tattoo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="pinkness nav-link" id="registration_nav_find_friend"  href="#nav-find_friend">Find Friend</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="pinkness nav-link" id="registration_nav_log_in"  href="/nav2/logged/in">Log In</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="pinkness nav-link" id="registration_nav_log_out"  href="/nav1/logged/out">Log Out</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="row">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tag %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'tattoo_u_registration_login_app/js/java.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

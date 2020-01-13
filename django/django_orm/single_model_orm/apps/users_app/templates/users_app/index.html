@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Users App index.html index.html" content="Users App index.html index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Users App index.html</title>
+        {% load static %}
+        <script src="{% static 'users_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'users_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'users_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'users_app/css/style.css' %}">
+        <script src="{% static 'users_app/js/java.js' %}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>All Movies</h1>
+            <ul>
+            {% for mov in all_the_movies %}
+                <li>{{ mov.id }}</li>
+                <li>{{ mov.created_at }}</li>
+                <li>{{ mov.updated_at }}</li>
+                <li>{{ mov.title }}</li>
+                <li>{{ mov.description }}</li>
+                <li>{{ mov.release_date }}</li>
+                <li>{{ mov.duration }}</li>
+            {% endfor %}
+            </ul>
+            <h1>Authors List</h1>
+            <ul>
+                {% for author in authors %}
+                    <li>{{author.name}}
+                        <ul>
+                            <!-- looping through each author's books! -->
+                            {% for book in author.books.all %}
+                                <li><em>{{book.title}}</em></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

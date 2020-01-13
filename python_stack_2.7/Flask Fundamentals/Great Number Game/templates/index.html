@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Great Number Game</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <!-- <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script> -->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/java.js') }}"></script>
+        </head>
+    <body>
+        <div class="container">
+            <form action="/" method="POST">
+                <div class="row">
+                    <h1 class="text-center">Welcome to the Great Number Game!</h1>
+                    <p class="text-center">I am thinking of a number between 1 and 100</p>
+                    <p class="text-center">Take a guess!</p>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="geussed1" name="geussed" value="geussed" placeholder="Your Guess is:">
+                    </div>
+                </div>
+                <div class="row" id="empty">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                {% if anwser > geuss or anwser < geuss %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ anwser }} {{ message }}
+                                    </div>
+                                {% else %}
+                                    <div class="alert alert-success" role="alert">
+                                        <p>{{ geuss }} {{ message }} was the number</p>
+                                        <a href="{{ url_for('clearS') }}"><button type="button" class="btn btn-success btn-lg">Play Again?</button></a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="row">
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-warning" value="sent">Are you Right? Click to see!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

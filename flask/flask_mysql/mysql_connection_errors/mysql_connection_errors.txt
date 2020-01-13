@@ -1,0 +1,18 @@
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+1045 - I fixed it by supplying the correct password value to the connection variable
+
+RuntimeError: cryptography is required for sha256_password or caching_sha2_password
+    -I fixed it by supplying the correct user value to the connection variable
+
+NameError: name 'db1' is not defined
+    - I fixed it by supplying the correct db value to the connection variable
+
+NameError: name 'self' is not defined
+    - I fixed it by correcting the parameter self in the def init function in the MySQLConnections class.
+
+TypeError: connectToMySQL() takes 0 positional arguments but 1 was given
+    - i fixed it by adding the parameterback into the connectToMySQL function
+
+AttributeError: module 'pymysql.cursors' has no attribute 'ictCursor'
+    -i fixed it by fixing supplying the correct cursorclass value to the connection variable
+

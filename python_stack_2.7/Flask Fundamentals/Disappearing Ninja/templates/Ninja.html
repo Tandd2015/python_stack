@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Ninja</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/java.js') }}"></script>
+    </head>
+    <body>
+       <div class="container">
+        {% if color == 'img/leonardo.jpg' %}
+            <img src="{{ url_for('static', filename='img/leonardo.jpg') }}" id="blue" alt="A picture of leonardo a ninja turtle."></img>
+        {% elif color == 'img/raphael.jpg' %}
+            <img src="{{ url_for('static', filename='img/raphael.jpg') }}" id="red" alt="A picture of raphael a ninja turtle."></img>
+        {% elif color == 'img/michelangelo.jpg' %}
+            <img src="{{ url_for('static', filename='img/michelangelo.jpg') }}" id="orange" alt="A picture of michelangelo a ninja turtle."></img>
+        {% elif color == 'img/donatello.jpg' %}
+            <img src="{{ url_for('static', filename='img/donatello.jpg') }}" id="purple" alt="A picture of donatello a ninja turtle."></img>
+        {% else %}
+            <img src="{{ url_for('static', filename='img/notapril.jpg') }}" id="eTelse" alt="A picture of megan fox."></img>
+        {% endif %}
+       </div> 
+    </body>
+</html>

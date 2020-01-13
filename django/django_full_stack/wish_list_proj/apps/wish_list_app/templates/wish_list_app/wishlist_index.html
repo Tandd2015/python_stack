@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Wish List App main_page_index.html" content="Wish List App main_page_index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Wish List App main_page_index.html</title>
+        {% load static %}
+        <script src="{% static 'wish_list_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'wish_list_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'wish_list_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'wish_list_app/css/style.css' %}">
+        <script src="{% static 'wish_list_app/js/java.js' %}"></script>
+        <title>Wish List App main_page_index.html</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="form-group col-md-7">
+                    <h5>Create a New Wish List Item</h5>
+                </div>
+                <div class="incline form-group col-md-5">
+                    <a href="/clear">Logout</a>
+                    <p class="incline"> | </p>
+                    <a href="/dashboard">Home</a>
+            </div>
+            <div class="row">
+                <form action="/created_success" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="change" value="product_">
+                    <div class="col-md-10">
+                        <div class="form-group col-md-6">
+                            <label for="product_item_input">item/Product: </label>
+                            <input type="text" class="form-control" id="css_product_item_input" name="product_item_input" placeholder="Item/Product">
+                        </div>
+                        <div class="left form-group col-md-12">
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tag %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

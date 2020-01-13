@@ -1,0 +1,50 @@
+python3 manage.py makemigrations
+
+python3 manage.py migrate
+
+python3 manage.py shell
+
+from apps.dojo_ninjas_app.models import *
+
+one_dojo = Dojo.objects.create(name="Dojo One", city="Continental", state="OH")                                                                  
+two_dojo = Dojo.objects.create(name="Dojo Two", city="Holgate", state="CA")                                                                      
+three_dojo = Dojo.objects.create(name="Dojo Three", city="Melrose", state="IN")
+
+all_delete = Dojo.objects.all().delete()
+all_delete
+
+new_dojo1 = Dojo.objects.create(name="New Dojo One", city="Las Vegas", state="NV")
+new_dojo2 = Dojo.objects.create(name="New Dojo Two", city="Columbus", state="OH")
+new_dojo3 = Dojo.objects.create(name="New Dojo Three", city="Holgate", state="OH")
+
+ninja_one_one = Ninja.objects.create(first_name="Daniel", last_name="Beatty", dojo_id=new_dojo1)
+ninja_one_two = Ninja.objects.create(first_name="Harlow", last_name="Beatty", dojo_id=new_dojo1)
+ninja_one_three = Ninja.objects.create(first_name="Christina", last_name="Beatty", dojo_id=new_dojo1)
+
+ninja_two_one = Ninja.objects.create(first_name="Dan", last_name="Beatty", dojo_id=new_dojo2)
+ninja_two_two = Ninja.objects.create(first_name="Sandra", last_name="Dockery", dojo_id=new_dojo2)
+ninja_two_three = Ninja.objects.create(first_name="Erchil", last_name="Dockery", dojo_id=new_dojo2)
+
+ninja_three_one = Ninja.objects.create(first_name="new1", last_name="newel1", dojo_id=new_dojo3)
+ninja_three_two = Ninja.objects.create(first_name="new2", last_name="newel2", dojo_id=new_dojo3)
+ninja_three_three = Ninja.objects.create(first_name="new3", last_name="newel3", dojo_id=new_dojo3)
+
+first_id = Dojo.objects.first()
+all_ninja_one = Ninja.objects.all().filter(dojo_id=first_id)
+
+last_id = Dojo.objects.last()
+all_ninja_one = Ninja.objects.all().filter(dojo_id=last_id)
+
+last_ninjas_dojo = Ninja.objects.last().dojo_id.name
+
+python3 manage.py makemigrations
+
+python3 manage.py migrate
+
+python3 manage.py shell
+
+last_new_dojo = Dojo.objects.create(name="LAST DOJO", city="Neverland Ranch", state="NO", desc="Was the last thing to do.")
+
+
+                                                                  
+

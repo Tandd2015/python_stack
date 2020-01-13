@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Wish List App main_page_index.html" content="Wish List App main_page_index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Wish List App main_page_index.html</title>
+        {% load static %}
+        <script src="{% static 'wish_list_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'wish_list_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'wish_list_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'wish_list_app/css/style.css' %}">
+        <script src="{% static 'wish_list_app/js/java.js' %}"></script>
+        <title>Wish List App main_page_index.html</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="form-group col-md-7">
+                    <h1>{{display_item.name}}</h1>
+                    <p>Users who added this product/item under their wish list.</p>
+                    <!-- forloop of users -->
+                {%for users_of_list in user_item_of_add%}
+                    <p>{{users_of_list.name}}</p>
+                {%endfor%}
+                </div>
+                <div class="incline form-group col-md-5">
+                    <a href="/clear">Logout</a>
+                    <p class="incline"> | </p>
+                    <a href="/dashboard">Home</a>
+                </div>
+            </div>
+            <div class="row">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tag %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="First Django App index.html" content="First Django App index.html template">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>First Django App index.html</title>
+        {% load static %}
+        <script src="{% static 'first_django_app/js/jquery.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'first_django_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'first_django_app/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'first_django_app/css/style.css' %}">
+        <script src="{% static 'first_django_app/js/java.js' %}"></script>
+    </head>
+    <body>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <p class="lead" id="one">The Current Time and Date: </p>
+                <h1 class="display-4" id="two">{{ date }} <br> {{ time }}</h1>
+            </div>
+        </div>
+    </body>
+</html>

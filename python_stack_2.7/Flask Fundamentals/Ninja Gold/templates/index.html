@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Ninja Gold</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/java.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row" id="gHolder">
+                <div class="col-4">
+                    <p>Your Gold:  </p>
+                </div>
+                <div class="col-8" id="aHolder">
+                    <p>{{ session['sumGold'] }}</p>
+                </div>
+            </div>
+            <div class="row" id="sHolder">
+                <div class="col" id="farms">
+                    <form action="/process_money" class="text-center" id="1" method="post">
+                        <h1>Farm</h1>
+                        <p>(earns 10 - 20 golds)</p>
+                        <input type="hidden" name="action" value="farm">
+                        <button type="submit" class="btn btn-success btn-lg" value="sumGold">Find Gold!</button>
+                    </form>
+                </div>
+                <div class="col" id="caves">
+                    <form action="/process_money" class="text-center" id="2" method="post">
+                        <h1>Cave</h1>
+                        <p>(earns 5 - 10 golds)</p>
+                        <input type="hidden" name="action" value="cave">
+                        <button type="submit" class="btn btn-primary btn-lg" value="sumGold">Find Gold!</button>
+                    </form>
+                </div>
+                <div class="col" id="houses">
+                    <form action="/process_money" class="text-center" id="3" method="post">
+                        <h1>House</h1>
+                        <p>(earns 2 - 5 golds)</p>
+                        <input type="hidden" name="action" value="house">
+                        <button type="submit" class="btn btn-warning btn-lg" value="sumGold">Find Gold!</button>
+                    </form>
+                </div>
+                <div class="col" id="casinos">
+                    <form action="/process_money" class="text-center" id="4" method="post">
+                        <h1>Casino</h1>
+                        <p>(earns/takes 0 - 50 golds)</p>
+                        <input type="hidden" name="action" value="casino">
+                        <button type="submit" class="btn btn-danger btn-lg" value="sumGold">Find Gold!</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <p>Activities:</p>
+                <div class="col" id="aLog">
+                    <p class="{{session['color0']}}">{{session['log0']}}</p>
+                    <p class="{{session['color1']}}">{{session['log1']}}</p>
+                    <p class="{{session['color2']}}">{{session['log2']}}</p>
+                    <p class="{{session['color3']}}">{{session['log3']}}</p>
+                    <p class="{{session['color4']}}">{{session['log4']}}</p>
+                    <p class="{{session['color5']}}">{{session['log5']}}</p>
+                    <p class="{{session['color6']}}">{{session['log6']}}</p>
+                </div>
+                <div class="col" id="aLog1">
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
