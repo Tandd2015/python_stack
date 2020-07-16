@@ -1,4 +1,0 @@
-SET SQL_SAFE_UPDATES = 0;
-
-DELETE FROM tweets WHERE ('id' = '14');
-DELETE FROM tweets WHERE id = 14;
